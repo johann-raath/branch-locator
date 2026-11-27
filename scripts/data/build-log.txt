@@ -1,0 +1,90 @@
+Loaded 2781 records from C:\Projects\Branch Locator\scripts\data\overture-capitec.json
+DROP (name): "Capitec Bank Head Office" [ae02446c-e78c-4358-81ec-2ffa678d586a]
+DROP (name): "Capitac Bank" [9e9c6b62-6b5f-46b6-8f5f-96a9ab918634]
+DROP (country NA): Capitec Waste Management [bfe093b2-ce95-4f77-bc34-0b012a055fa3]
+DROP (name): "Capitech Bank" [96938bc9-817c-45e7-b855-e16156a8de31]
+Dropped: 1 outside ZA, 3 non-Capitec-bank names, 0 no usable source
+  names: Capitec Bank Head Office | Capitac Bank | Capitech Bank
+Excluded ATMs (see plan §4.5): 1847
+Kept for processing: 930
+WIDE MATCH 76 m: Microsoft:"Capitec Bank Mafikeng Mall" ~ meta:"Capitec Mafikeng Mall Shopping Centre"
+WIDE MATCH 128 m: Microsoft:"Capitec Bank Mafikeng Mall" ~ meta:"Capitec Bank Mafikeng Mall"
+WIDE MATCH 166 m: meta:"Capitec Bank Bizana Square" ~ Microsoft:"Capitec Bank Bizana Thompson"
+WIDE MATCH 79 m: meta:"Capitec Bank Tembisa Mall" ~ Microsoft:"Capitec Bank Tembisa Birch Acres"
+WIDE MATCH 95 m: meta:"Capitec Kriel" ~ Microsoft:"Capitec Bank Kriel"
+WIDE MATCH 192 m: meta:"Capitec Bank Benoni Lakeside Mall Shop 24" ~ Microsoft:"Capitec Bank Benoni Princess Avenue"
+WIDE MATCH 149 m: meta:"Capitec Warmbad" ~ Microsoft:"Capitec Bank Warmbad"
+WIDE MATCH 104 m: Microsoft:"Capitec Bank Burgersfort Morone" ~ meta:"Capitec Bank Burgersfort Dilokong Mine"
+WIDE MATCH 111 m: Microsoft:"Capitec Bank Burgersfort Morone" ~ meta:"Capitec Bank Burgersfort Twin City"
+MERGE branch: Microsoft:"Capitec Bank Khayelitsha KBD 37" + meta:"Capitec Bank" -> "Capitec Bank Khayelitsha KBD 37" (id from Microsoft)
+MERGE branch: meta:"Capitec Bank" + Microsoft:"Capitec Bank Mitchells Plain Westgate Mall" -> "Capitec Bank Mitchells Plain Westgate Mall" (id from Microsoft)
+MERGE branch: Microsoft:"Capitec Bank Eerste River Grand Central Shopping Centre" + meta:"Capitec Bank" -> "Capitec Bank Eerste River Grand Central Shopping Centre" (id from Microsoft)
+MERGE branch: meta:"De Aar Capitec Bank" + meta:"De Aar Capitec Bank" + Microsoft:"Capitec Bank De Aar" -> "Capitec Bank De Aar" (id from Microsoft)
+MERGE branch: Microsoft:"Capitec Bank Mafikeng Mall" + meta:"Capitec Mafikeng Mall Shopping Centre" + meta:"Capitec Bank Mafikeng Mall" -> "Capitec Bank Mafikeng Mall" (id from Microsoft)
+MERGE branch: AllThePlaces:"Capitec Bank" + Microsoft:"Capitec Bank Thaba Nchu Atlas Building" -> "Capitec Bank Thaba Nchu Atlas Building" (id from Microsoft)
+MERGE branch: AllThePlaces:"Capitec Bank" + Microsoft:"Capitec Bank Bothaville" -> "Capitec Bank Bothaville" (id from Microsoft)
+MERGE branch: Microsoft:"Capitec Bank Parys" + meta:"Capitec Bank Paulpietersburg" -> "Capitec Bank Parys" (id from Microsoft)
+MERGE branch: Microsoft:"Capitec Bank Soweto Jabulani Mall 49" + AllThePlaces:"Capitec Bank" -> "Capitec Bank Soweto Jabulani Mall 49" (id from Microsoft)
+MERGE branch: Microsoft:"Capitec Bank Johannesburg Mall of The South" + AllThePlaces:"Capitec Bank" -> "Capitec Bank Johannesburg Mall of The South" (id from Microsoft)
+MERGE branch: Microsoft:"Capitec Bank Johannesburg Bree" + meta:"Capitec Bank Johannesburg Bree" -> "Capitec Bank Johannesburg Bree" (id from Microsoft)
+MERGE branch: meta:"Capitec Bank Bizana Square" + Microsoft:"Capitec Bank Bizana Thompson" -> "Capitec Bank Bizana Thompson" (id from Microsoft)
+MERGE branch: Microsoft:"Capitec Bank Bethlehem Muller" + AllThePlaces:"Capitec Bank" -> "Capitec Bank Bethlehem Muller" (id from Microsoft)
+MERGE branch: meta:"Capitec Bank Tembisa Mall" + Microsoft:"Capitec Bank Tembisa Birch Acres" -> "Capitec Bank Tembisa Birch Acres" (id from Microsoft)
+MERGE branch: meta:"Capitec Kriel" + Microsoft:"Capitec Bank Kriel" -> "Capitec Bank Kriel" (id from Microsoft)
+MERGE branch: AllThePlaces:"Capitec Bank" + Microsoft:"Capitec Bank Standerton Burger Street" -> "Capitec Bank Standerton Burger Street" (id from Microsoft)
+MERGE branch: meta:"Capitec Bank Benoni Lakeside Mall Shop 24" + Microsoft:"Capitec Bank Benoni Princess Avenue" -> "Capitec Bank Benoni Princess Avenue" (id from Microsoft)
+MERGE branch: AllThePlaces:"Capitec Bank" + Microsoft:"Capitec Bank Witbank Kwa-Guqa Centre" -> "Capitec Bank Witbank Kwa-Guqa Centre" (id from Microsoft)
+MERGE branch: Microsoft:"Capitec Bank Soshanguve Crossing Mall 91" + AllThePlaces:"Capitec Bank" -> "Capitec Bank Soshanguve Crossing Mall 91" (id from Microsoft)
+MERGE branch: meta:"East Lynne Capitec" + Microsoft:"Capitec Bank Pretoria Baviaanspoort" -> "Capitec Bank Pretoria Baviaanspoort" (id from Microsoft)
+MERGE branch: meta:"Capitec Warmbad" + Microsoft:"Capitec Bank Warmbad" -> "Capitec Bank Warmbad" (id from Microsoft)
+MERGE branch: Microsoft:"Capitec Bank KwaMhlanga Phola Park Mall" + AllThePlaces:"Capitec Bank" -> "Capitec Bank KwaMhlanga Phola Park Mall" (id from Microsoft)
+MERGE branch: meta:"Capitec Bank Mokopane" + Microsoft:"Capitec Bank Mokopane Thabo Mbeki" -> "Capitec Bank Mokopane Thabo Mbeki" (id from Microsoft)
+MERGE branch: Microsoft:"Capitec Bank Apel Bopedi" + AllThePlaces:"Capitec Bank" -> "Capitec Bank Apel Bopedi" (id from Microsoft)
+MERGE branch: Microsoft:"Capitec Bank Burgersfort Morone" + meta:"Capitec Bank Burgersfort Dilokong Mine" + meta:"Capitec Bank Burgersfort Twin City" -> "Capitec Bank Burgersfort Morone" (id from Microsoft)
+MERGE branch: Microsoft:"Capitec Bank Stanger KwaDukuza Mall" + AllThePlaces:"Capitec Bank" -> "Capitec Bank Stanger KwaDukuza Mall" (id from Microsoft)
+Deduplicated (<= 60 m, same type): 930 -> 901 (29 merged away)
+Records with address gaps: 12 (offline: cache only)
+GEOCODE "Capitec Bank Pietermaritzburg Edendale Mall": [null,null,null] -> ["Msunduzi Ward 16","Msunduzi Local Municipality","KwaZulu-Natal"]
+GEOCODE "Capitec Bank": [null,null,null] -> ["Kraaibosch","George","Western Cape"]
+GEOCODE "Capitec Bank": [null,null,"Western Cape"] -> ["Oakdale","Bellville","Western Cape"]
+GEOCODE "Capitec Bank": [null,null,null] -> ["Midvaal Ward 9","Midvaal Local Municipality","Gauteng"]
+GEOCODE "Capitec Bank": [null,null,null] -> ["Ward 9","Bushbuckridge","Mpumalanga"]
+GEOCODE "Capitec Bank Botshabelo": ["Botshabelo","Botshabelo",null] -> ["Botshabelo","Botshabelo","Free State"]
+GEOCODE "Capitec Bank Nongoma Mall": [null,null,null] -> ["Nongoma Ward 16","Nongoma Local Municipality","KwaZulu-Natal"]
+GEOCODE "Capitec Bank": [null,null,null] -> ["Raceview","Alberton","Gauteng"]
+GEOCODE "Capitec Bank": [null,null,null] -> ["Oriel","City of Ekurhuleni Metropolitan Municipality","Gauteng"]
+GEOCODE "Capitec Bank Mqanduli": [null,null,null] -> ["King Sabata Dalindyebo Ward 29","King Sabata Dalindyebo Local Municipality","Eastern Cape"]
+GEOCODE "Capitec Bank VA Waterfront": ["Victoria & Alfred Waterfront","Cape Town",null] -> ["Victoria & Alfred Waterfront","Cape Town","Western Cape"]
+GEOCODE "Capitec Bank Steelpoort": [null,null,null] -> ["Tubatse","Greater Tubatse Local Municipality","Limpopo"]
+NAME "Capitec Bank" -> "Capitec Bank Kraaibosch" (from geocoded suburb)
+NAME "Capitec Bank" -> "Capitec Bank Oakdale" (from geocoded suburb)
+NAME "Capitec Bank" -> "Capitec Bank Midvaal Ward 9" (from geocoded suburb)
+NAME "Capitec Bank" -> "Capitec Bank Ward 9" (from geocoded suburb)
+NAME "Capitec Bank" -> "Capitec Bank Raceview" (from geocoded suburb)
+NAME "Capitec Bank" -> "Capitec Bank Oriel" (from geocoded suburb)
+Geocoded via Nominatim/cache: 12; province from nearest neighbour: 0
+
+=== Summary ===
+Written: 901 records to public/api/branches.json, 3 notices to public/api/notices.json
+By type: branch 881, business-centre 20
+By province: Gauteng 293, Western Cape 140, KwaZulu-Natal 120, Eastern Cape 85, Limpopo 75, Mpumalanga 75, Free State 45, North West 44, Northern Cape 24
+
+=== Edge cases (§4.6) ===
+[x] pairs < 200 m apart: 19 (closest: "Capitec Bank Tembisa Phumulani Mall 25" / "Capitec Bank Clayville", 61 m)
+[x] longest name+street: "Capitec Bank Vanderbijlpark South East" / "Shop 10A, South East Boulevard, Hendrik Van Eck Boulevard, Vanderbijlpark S. E. 8"
+[x] apostrophes: 8 (e.g. Capitec Bank Gordons Bay Sir Lowry; Capitec Bank Strand Cinnamon Square; Capitec Bank Salt Rock Tiffanys)
+[x] place "Paarl": 6 records
+[x] place "Bellville": 6 records
+[ ] place "Mbekweni": 0 records
+[x] known source typo "Sqaure": Capitec Business Centre Paarl
+
+=== Scenarios ===
+[x] S1 Lunch closure 13:00-13:45 every weekday (split day): Capitec Bank Paarl Lady Grey 70 (Paarl, Paarl)
+[x] S2 Staff training: Wednesdays open 09:30: Capitec Bank Stellenbosch Die Boord (Stellenbosch, Stellenbosch)
+[x] S3 Late trading: Fridays until 21:00: Capitec Bank Canal Walk (Cape Town, Cape Town)
+[x] S4 Temporarily closed today and tomorrow (systems upgrade): Capitec Bank Cape Town St. Georges Mall (Cape Town, Cape Town)
+[x] S5 Closing early today at 14:00 (community event): Capitec Bank Stellenbosch Eikestad Mall (Stellenbosch, Stellenbosch)
+[x] S6 Relocated: old Paarl site points to Paarl Mall: Capitec Bank Paarl (Paarl, Paarl)
+[x] S7 Opening soon, 10 days from today: Capitec Bank Sea Point (Cape Town, Cape Town)
+[x] S8 mall holiday hours (automatic), e.g.: Capitec Bank Vosloorus Naledi Mall
+[x] S9 business centre closed all weekend (automatic), e.g.: Capitec Business Centre Menlyn

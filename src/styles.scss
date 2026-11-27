@@ -1,0 +1,338 @@
+// Clean and minimal: slim type, hairlines, soft shadows on what floats over the map.
+// Colour only where attention is needed (accent for actions and pins, red/amber for warnings).
+:root {
+  --font-body: 'Poppins', system-ui, sans-serif;
+  --font-head: 'Poppins', system-ui, sans-serif; // headers: same family, bolder (600)
+
+  --bg: #ffffff;
+  --ink: #14171a;
+  --muted: #69727b;
+  --line: #e7e9ec;
+  --hover: #f4f6f8;
+  --accent: #0057b8;
+  --on-accent: #ffffff;
+  --alert: #c4001a;
+  --warn: #a35c00;
+  --radius: 16px;
+  --shadow: 0 4px 16px rgba(16, 24, 40, 0.14), 0 1px 3px rgba(16, 24, 40, 0.1);
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --bg: #1a1e23;
+  --ink: #eceff2;
+  --muted: #98a2ad;
+  --line: #2d343b;
+  --hover: #242a31;
+  --accent: #4c9aff;
+  --on-accent: #06142b;
+  --alert: #ff6b7a;
+  --warn: #f0a43a;
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
+  color-scheme: dark;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--bg);
+}
+h1,
+h2,
+h3 {
+  font-family: var(--font-head);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+// Android paints a square over whatever is tapped, ignoring rounded corners; show the press ourselves
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+button:active,
+a:active {
+  opacity: 0.7;
+}
+input,
+select {
+  font-family: inherit;
+  color: inherit;
+}
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+// floating cards over the map
+.surface {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.menu {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 8px 16px;
+  display: grid;
+}
+.menu > * {
+  padding: 10px 0;
+}
+.menu > * + * {
+  border-top: 1px solid var(--line);
+}
+.menu label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.menu input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+  margin: 0;
+}
+.menu .reset {
+  text-align: right;
+  color: var(--muted);
+}
+.menu .reset:hover {
+  color: var(--ink);
+}
+
+.tone-warn {
+  color: var(--warn);
+}
+.tone-closed {
+  color: var(--alert);
+}
+.tone-planned {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+// map: blue pins, soft clusters, themed popup and controls
+.dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+  box-sizing: border-box;
+}
+.dot.closed {
+  background: #8b939c;
+}
+.dot.selected {
+  background: var(--alert);
+  width: 24px;
+  height: 24px;
+  margin: -4px 0 0 -4px;
+}
+.dot.me {
+  width: 18px;
+  height: 18px;
+  border-width: 3px;
+  box-shadow: 0 0 0 8px color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
+.marker-cluster-small,
+.marker-cluster-medium,
+.marker-cluster-large {
+  background-color: color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.marker-cluster-small div,
+.marker-cluster-medium div,
+.marker-cluster-large div {
+  background-color: var(--accent);
+  color: var(--on-accent);
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+// the base map is a light OSM tile set; invert it in dark mode
+:root[data-theme='dark'] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) brightness(0.95) contrast(0.9);
+}
+
+.leaflet-container {
+  font-family: var(--font-body);
+  background: #ddd;
+}
+:root[data-theme='dark'] .leaflet-container {
+  background: #1d2024;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: var(--bg);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+}
+.leaflet-popup-content-wrapper {
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  padding: 0;
+}
+.leaflet-popup-content {
+  margin: 14px 16px;
+  font-size: 13px;
+  line-height: 1.5;
+  min-width: 200px;
+}
+.leaflet-popup-content p {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-weight: 300;
+}
+.leaflet-popup-content p.pop-name {
+  color: var(--ink);
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 14px;
+}
+.leaflet-popup-content p.tone-warn {
+  color: var(--warn);
+}
+.leaflet-popup-content p.tone-closed {
+  color: var(--alert);
+}
+.leaflet-popup-content p.tone-planned {
+  color: var(--accent);
+  font-weight: 500;
+}
+.leaflet-popup-content p.pop-sample {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.leaflet-popup-content .pop-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+.leaflet-popup-content .pop-actions a,
+.leaflet-popup-content .pop-actions button {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+}
+.leaflet-popup-content .pop-actions a:hover,
+.leaflet-popup-content .pop-actions button:hover {
+  text-decoration: underline;
+}
+
+.leaflet-bar {
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.leaflet-bar a,
+.leaflet-bar a:hover {
+  background-color: var(--bg);
+  color: var(--ink);
+  border-bottom-color: var(--line);
+}
+.leaflet-control-attribution {
+  background: color-mix(in srgb, var(--bg) 80%, transparent) !important;
+  color: var(--muted);
+}
+.leaflet-control-attribution a {
+  color: var(--accent);
+}
+
+@media (max-width: 767px) {
+  .leaflet-control-zoom {
+    display: none;
+  }
+}
+
+// desktop: clicking a pin opens the details card on the left, so the popup has no "More"
+@media (min-width: 1200px) {
+  .leaflet-popup-content .pop-more {
+    display: none;
+  }
+}
+
+// tablet: scale up, and move zoom below the full-width search bar
+@media (min-width: 768px) and (max-width: 1199px) {
+  body {
+    font-size: 16px;
+  }
+  .leaflet-top.leaflet-right {
+    margin-top: 84px;
+    margin-right: 6px;
+  }
+  .leaflet-control-zoom a {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+  }
+  .leaflet-popup-content {
+    font-size: 15px;
+    min-width: 260px;
+    margin: 16px 20px;
+  }
+  .leaflet-popup-content p.pop-name {
+    font-size: 16px;
+  }
+  .leaflet-popup-content .pop-actions {
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+  .dot {
+    width: 20px;
+    height: 20px;
+    margin: -3px 0 0 -3px;
+  }
+  .dot.selected {
+    width: 28px;
+    height: 28px;
+    margin: -7px 0 0 -7px;
+  }
+  .menu {
+    padding: 10px 20px;
+  }
+  .menu > * {
+    padding: 12px 0;
+  }
+  .menu input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+  }
+}

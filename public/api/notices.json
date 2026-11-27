@@ -1,0 +1,24 @@
+[
+  {
+    "kind": "opening-soon",
+    "branchId": "3063592f-33f6-4742-bf02-8495a504733e",
+    "fromOffsetDays": 10,
+    "toOffsetDays": 10
+  },
+  {
+    "kind": "temporarily-closed",
+    "branchId": "a2d4d0e7-f57a-463d-9b15-1473bf1f550e",
+    "fromOffsetDays": 0,
+    "toOffsetDays": 1,
+    "reason": "Systems upgrade"
+  },
+  {
+    "kind": "close-early",
+    "branchId": "dc0dfd48-31a9-4fb6-8cd1-3a41e413ba09",
+    "fromOffsetDays": 0,
+    "toOffsetDays": 0,
+    "label": "Community event",
+    "reason": "community-event",
+    "closeAt": "14:00"
+  }
+]

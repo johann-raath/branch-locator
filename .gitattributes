@@ -1,0 +1,4 @@
+# LF everywhere, so the formatting check also passes on a Windows clone
+* text=auto eol=lf
+*.ico binary
+*.woff2 binary

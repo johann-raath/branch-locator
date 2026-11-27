@@ -1,0 +1,72 @@
+{
+  "-24.80082,30.17047": {
+    "suburb": "Tubatse",
+    "city": "Greater Tubatse Local Municipality",
+    "province": "Limpopo"
+  },
+  "-24.83980,31.04641": {
+    "suburb": "Ward 9",
+    "city": "Bushbuckridge",
+    "province": "Mpumalanga",
+    "postalCode": "1280"
+  },
+  "-26.18878,28.12555": {
+    "suburb": "Oriel",
+    "city": "City of Ekurhuleni Metropolitan Municipality",
+    "province": "Gauteng",
+    "postalCode": "2013"
+  },
+  "-26.26591,28.12308": {
+    "suburb": "Raceview",
+    "city": "Alberton",
+    "province": "Gauteng",
+    "postalCode": "1449"
+  },
+  "-26.55929,28.01595": {
+    "suburb": "Midvaal Ward 9",
+    "city": "Midvaal Local Municipality",
+    "province": "Gauteng",
+    "postalCode": "1960"
+  },
+  "-27.89430,31.64539": {
+    "suburb": "Nongoma Ward 16",
+    "city": "Nongoma Local Municipality",
+    "province": "KwaZulu-Natal",
+    "postalCode": "3950"
+  },
+  "-29.22984,26.68286": {
+    "suburb": "Botshabelo Rural",
+    "city": "Botshabelo",
+    "province": "Free State",
+    "postalCode": "9781"
+  },
+  "-29.66519,30.31968": {
+    "suburb": "Msunduzi Ward 16",
+    "city": "Msunduzi Local Municipality",
+    "province": "KwaZulu-Natal",
+    "postalCode": "4503"
+  },
+  "-31.81665,28.74999": {
+    "suburb": "King Sabata Dalindyebo Ward 29",
+    "city": "King Sabata Dalindyebo Local Municipality",
+    "province": "Eastern Cape"
+  },
+  "-33.89027,18.63671": {
+    "suburb": "Oakdale",
+    "city": "Bellville",
+    "province": "Western Cape",
+    "postalCode": "7530"
+  },
+  "-33.90448,18.41934": {
+    "suburb": "Foreshore",
+    "city": "Cape Town",
+    "province": "Western Cape",
+    "postalCode": "8001"
+  },
+  "-33.98309,22.50377": {
+    "suburb": "Kraaibosch",
+    "city": "George",
+    "province": "Western Cape",
+    "postalCode": "6546"
+  }
+}

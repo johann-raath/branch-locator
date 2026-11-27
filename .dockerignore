@@ -1,0 +1,16 @@
+node_modules
+dist
+.angular
+.git
+.vscode
+scripts/data/overture-capitec.json
+scripts/data/build-log.txt
+*.md
+Dockerfile
+.dockerignore
+.github
+
+e2e
+playwright.config.ts
+playwright-report
+test-results

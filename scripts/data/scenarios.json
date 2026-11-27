@@ -1,0 +1,61 @@
+﻿[
+  {
+    "id": "S1",
+    "description": "Lunch closure 13:00-13:45 every weekday (split day)",
+    "kind": "lunch-closure",
+    "match": { "name": "^Capitec Bank Paarl Lady Grey" },
+    "from": "13:00",
+    "to": "13:45"
+  },
+  {
+    "id": "S2",
+    "description": "Staff training: Wednesdays open 09:30",
+    "kind": "weekday-start",
+    "match": { "name": "^Capitec Bank Stellenbosch Die Boord$" },
+    "day": "wed",
+    "opensAt": "09:30",
+    "label": "Staff training"
+  },
+  {
+    "id": "S3",
+    "description": "Late trading: Fridays until 21:00",
+    "kind": "late-trading",
+    "match": { "name": "^Capitec Bank Canal Walk$" },
+    "day": "fri",
+    "closeAt": "21:00"
+  },
+  {
+    "id": "S4",
+    "description": "Temporarily closed today and tomorrow (systems upgrade)",
+    "kind": "temporarily-closed",
+    "match": { "name": "^Capitec Bank Cape Town St\\.? Georges Mall$" },
+    "fromOffsetDays": 0,
+    "toOffsetDays": 1,
+    "reason": "Systems upgrade"
+  },
+  {
+    "id": "S5",
+    "description": "Closing early today at 14:00 (community event)",
+    "kind": "close-early",
+    "match": { "name": "^Capitec Bank Stellenbosch Eikestad Mall$" },
+    "fromOffsetDays": 0,
+    "toOffsetDays": 0,
+    "closeAt": "14:00",
+    "label": "Community event"
+  },
+  {
+    "id": "S6",
+    "description": "Relocated: old Paarl site points to Paarl Mall",
+    "kind": "relocated",
+    "match": { "name": "^Capitec Bank Paarl$" },
+    "movedTo": { "name": "^Capitec Bank Paarl Mall$" },
+    "since": "2026-10-01"
+  },
+  {
+    "id": "S7",
+    "description": "Opening soon, 10 days from today",
+    "kind": "opening-soon",
+    "match": { "name": "^Capitec Bank Sea Point$" },
+    "fromOffsetDays": 10
+  }
+]

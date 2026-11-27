@@ -1,0 +1,80 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "cli": {
+    "packageManager": "npm",
+    "analytics": false
+  },
+  "newProjectRoot": "projects",
+  "projects": {
+    "branch-locator": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "src/main.ts",
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss", "allowedCommonJsDependencies": ["leaflet", "leaflet.markercluster"],
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
+            "styles": ["node_modules/leaflet/dist/leaflet.css", "node_modules/leaflet.markercluster/dist/MarkerCluster.css", "node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css", "node_modules/@fontsource/poppins/latin-300.css", "node_modules/@fontsource/poppins/latin-400.css", "node_modules/@fontsource/poppins/latin-500.css", "node_modules/@fontsource/poppins/latin-600.css", "src/styles.scss"]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all",
+              "serviceWorker": "ngsw-config.json",
+              "optimization": { "styles": { "minify": true, "inlineCritical": false }, "scripts": true, "fonts": false }
+            },
+            "development": {
+              "fileReplacements": [{ "replace": "src/environments/environment.ts", "with": "src/environments/environment.development.ts" }],
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "branch-locator:build:production"
+            },
+            "development": {
+              "buildTarget": "branch-locator:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test"
+        }
+      }
+    }
+  }
+}

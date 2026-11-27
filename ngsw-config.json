@@ -1,0 +1,33 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/index.html",
+          "/favicon.ico",
+          "/favicon.svg",
+          "/theme-init.js",
+          "/*.css",
+          "/*.js",
+          "!/sw.js",
+          "!/ngsw-worker.js",
+          "!/safety-worker.js",
+          "!/worker-basic.min.js",
+          "/media/*.woff2"
+        ]
+      }
+    },
+    {
+      "name": "data",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "resources": { "files": ["/api/*.json"] }
+    }
+  ],
+  "navigationUrls": ["/**", "!/**/*.*", "!/**/*__*", "!/**/*__*/**", "!/healthz", "!/api/**"]
+}
