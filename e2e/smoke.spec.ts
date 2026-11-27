@@ -269,7 +269,21 @@ test('a link restores the search, and Share gives a link to the branch', async (
   await search(page).fill('paarl mall');
   await page.locator('#suggestions li button').first().click();
   await expect(page).toHaveURL(/branch=/);
-  await page.locator('.leaflet-popup').getByRole('button', { name: 'Share' }).click();
+  const share = page.locator('.leaflet-popup').getByRole('button', { name: 'Share' });
+  // wait for the map to stop gliding to the pin, or the button moves away from the note
+  let last = '';
+  await expect
+    .poll(
+      async () => {
+        const now = JSON.stringify(await share.boundingBox());
+        const still = now === last;
+        last = now;
+        return still;
+      },
+      { intervals: [500] },
+    )
+    .toBe(true);
+  await share.click();
   if (info.project.name === 'desktop') {
     // copied rather than shared, and says so next to the button
     const note = page.getByRole('status').filter({ hasText: 'Link copied' });
