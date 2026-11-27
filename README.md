@@ -56,11 +56,11 @@ All "open now" logic runs off an injected `Clock`. Add `?now=` (South African ti
 | `/?now=2027-03-21T10:00` | Sunday; Human Rights Day moves to Monday 22 Mar |
 | `/?now=2026-11-27T20:00` | A Friday evening (late trading at Canal Walk) |
 
-The override is controlled by `environment.allowClockOverride`. It is **on** in the dev and Docker/demo builds so reviewers can use it; a real production build would switch it off. All time logic uses `Africa/Johannesburg`, not the browser's time zone.
+The override is controlled by `environment.allowClockOverride`. It is **on** in the dev and Docker/demo builds so it can be used during review. It would be turned off for real production use. All time logic uses `Africa/Johannesburg`, not the browser's time zone.
 
 ## What it does
 
-**Layout.** The map fills the screen. A search bar floats on top, a control bar sits at the bottom. Phone, tablet (768 to 1199 px) and desktop (1200 px and up) are all designed, not just stretched.
+**Layout.** The map fills the screen. A search bar floats on top, a control bar sits at the bottom. Phone, tablet (768 to 1199 px) and desktop (1200 px and up) each have their own layout.
 
 | | Phone | Tablet | Desktop |
 |---|---|---|---|
@@ -122,7 +122,7 @@ e2e/              browser smoke tests
 - nginx serves hashed bundles with a one-year `immutable` cache, `index.html` with `no-cache`, and the data JSON for 5 minutes.
 - Security headers on every response, including a Content-Security-Policy (`script-src 'self'`, images only from self and the OpenStreetMap tile server) and `Permissions-Policy`. Fonts (Poppins) are self-hosted; nothing loads from a CDN.
 - Runs as a non-root user (nginx-unprivileged), exposes 8080, has a `HEALTHCHECK`.
-- Leaflet's marker-cluster plugin is accessed through `window.L` (see `branch-map/leaflet.ts`): in the optimised bundle `import * as L` is a snapshot taken before the plugin runs. This only shows in the production build, which is why the smoke tests run against the container (they fail against the broken build, which was checked).
+- Leaflet's marker-cluster plugin is accessed through `window.L` (see `branch-map/leaflet.ts`): in the optimised bundle `import * as L` is a snapshot taken before the plugin runs. This only shows in the production build, which is why the smoke tests run against the container.
 
 ## Data
 
@@ -150,7 +150,7 @@ Showcase scenarios (defined in `scripts/data/scenarios.json`):
 | S8 | Reduced hours on public holidays | Any mall-profile branch |
 | S9 | Business centre closed all weekend | Any business centre |
 
-S4, S5 and S7 are **date-relative**: they live in `public/api/notices.json` as day offsets and are resolved against the app's `Clock` when the data loads, so they show whenever a reviewer opens the app. Public holidays (Dec 2026 to Dec 2027, including the Sunday-to-Monday rule) are absolute.
+S4, S5 and S7 are **date-relative**: they live in `public/api/notices.json` as day offsets and are resolved against the app's `Clock` when the data loads, so they show on whatever day the app is opened. Public holidays (Dec 2026 to Dec 2027, including the Sunday-to-Monday rule) are absolute.
 
 ### Known data limitations
 
@@ -182,10 +182,10 @@ Deviations from a naive filter, all logged:
 
 ### Why static JSON over HTTP, not a backend
 
-The role is frontend, and the data is static. A .NET API that only returns a file would add a second build, a second container and CORS for nothing. The app is instead built to talk to an API (see Architecture), so a real one slots in behind `BranchRepository`.
+This is a frontend project and the data is static. A backend that only returns a file would add a second build, a second container and CORS setup without adding value. The app is instead built to talk to an API (see Architecture), so a real one slots in behind `BranchRepository`.
 
 ## Follow-ups
 
 - **Nearest ATM.** The export holds about 1,850 ATM records with full addresses. A second `atms.json` from the same pipeline and a type toggle would add it.
 - A .NET API with server-side radius and service filtering, plugged in as a second `BranchRepository`.
-- Real hours and services, if Capitec agrees to share their locator data. The pipeline keeps the same shape.
+- Real hours and services, if accurate data is provided. The pipeline keeps the same shape.
